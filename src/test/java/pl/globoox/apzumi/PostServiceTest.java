@@ -15,12 +15,12 @@ public class PostServiceTest {
     }
 
 
-    @Test
-    public void shouldEidtPostTitleOrBody() {
-        Post actualPost = postService.getPostByID(1);
-        actualPost.setTitle("New Title");
-        actualPost.setBody("New Body");
-        Assert.assertEquals(actualPost, );
-    }
+//    @Test
+//    public void shouldEidtPostTitleOrBody() {
+//        Post actualPost = postService.getPostByID(1);
+//        actualPost.setTitle("New Title");
+//        actualPost.setBody("New Body");
+//        Assert.assertEquals(actualPost, );
+//    }
 
 }
