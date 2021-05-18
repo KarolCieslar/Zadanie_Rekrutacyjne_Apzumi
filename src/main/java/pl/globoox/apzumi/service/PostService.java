@@ -20,14 +20,10 @@ public class PostService {
     private RestTemplate restTemplate;
 
 
-    public PostService() {
-    }
-
     public PostService(PostRepository postRepository, RestTemplate restTemplate) {
         this.postRepository = postRepository;
         this.restTemplate = restTemplate;
     }
-
 
 
     /* Get post by ID */
@@ -55,10 +51,16 @@ public class PostService {
     }
 
 
+    /* This function save post to database */
+    public Post savePost(Post post) {
+        return postRepository.save(post);
+    }
+
+
     /* By this function You can edit post title and body
      You have to use parameters post id to edit specific post
      Parameters title and body are not required to pass together */
-    public String editPostByID(int id, String title, String body) {
+    public Post editPostByID(int id, String title, String body) {
         Post post = postRepository.getPostByid(id);
         if (post == null) {
             throw new ResourceNotFoundException("Invalid post ID: " + id);
@@ -74,7 +76,7 @@ public class PostService {
 
         post.setEdited(true);
         postRepository.save(post);
-        return "Post saved!";
+        return post;
     }
 
 
