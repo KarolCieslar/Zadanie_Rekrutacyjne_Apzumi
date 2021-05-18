@@ -33,7 +33,7 @@ public class PostController {
     /* Edit posts using their ID */
     @PutMapping("/{id}")
     @ResponseBody
-    public String editByID(
+    public Post editByID(
             @PathVariable(value = "id") int id,
             @RequestParam(required = false) String title,
             @RequestParam(required = false) String body) {
